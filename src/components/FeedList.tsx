@@ -10,16 +10,19 @@ type ContactPerson = {
 };
 
 type Crime = {
+  id: string;
   state: string;
   city: string;
   videos: string[];
   phoneTranscript: string;
-  description: string;
-  emailTemplate?: string;
+  descriptionShort: string;
+  descriptionLong: string;
+  emailTemplateSubject?: string;
+  emailTemplateBody?: string;
+  mainPhoneNumber: string;
+  mainEmail: string;
   people: ContactPerson[];
   createdAt: string;
-  name: string;
-  id: string;
 };
 
 type Props = {
@@ -30,11 +33,7 @@ export default function FeedList(props: Props) {
   return (
     <div className={css(styles.feedContainer)}>
       {props.crimes.map((crime) => (
-        <FeedCrimeCard
-          key={crime.id}
-          title={crime.name}
-          videos={crime.videos}
-        />
+        <FeedCrimeCard key={crime.id} crime={crime} />
       ))}
     </div>
   );
@@ -48,5 +47,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "flex-start",
+    paddingBottom: 10,
   },
 });
