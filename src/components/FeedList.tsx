@@ -14,6 +14,7 @@ type Crime = {
   state: string;
   city: string;
   videos: string[];
+  status: "Nothing" | "Investigating" | "Fired" | "Arrested";
   phoneTranscript: string;
   descriptionShort: string;
   descriptionLong: string;
