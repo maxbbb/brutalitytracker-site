@@ -10,7 +10,6 @@ export default class MainFeed extends Component {
   };
 
   async componentDidMount() {
-    console.log("Main feed mounting");
     let crimes = await FeedApi.getMainCrimesFeed();
     this.setState({
       crimes: crimes,
