@@ -7,29 +7,32 @@ type Props = {
 
 export default function Video(props: Props) {
   return (
-    <video
-      src={props.link}
-      preload={"metadata"}
-      className={css(styles.container, styles.mobileContainer)}
-      controls
-    />
+    <div className={css(styles.container, styles.mobileContainer)}>
+      <video
+        className={css(styles.video)}
+        src={props.link}
+        preload={"metadata"}
+        controls
+      />
+    </div>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: "20%",
-    width: "100%",
     display: "flex",
-    backgroundColor: "grey",
-    alignItems: "center",
-    justifyContent: "center",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    width: "100%",
+    backgroundColor: "transparent",
   },
   mobileContainer: {
     "@media (max-width: 600px)": {
       width: "100%",
     },
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+    // borderTopLeftRadius: 5,
+    // borderTopRightRadius: 5,
   },
 });

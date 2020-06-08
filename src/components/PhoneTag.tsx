@@ -8,7 +8,7 @@ export default function PhoneTag(props: Props) {
   let phoneHref = `tel:${props.phoneNumber}`;
   return (
     <a href={phoneHref} className={css(styles.container)}>
-      <p>{`📞 Call`}</p>
+      <p className={css(styles.text)}>{`📞 Call`}</p>
     </a>
   );
 }
@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
     textDecoration: "none",
+  },
+  text: {
+    wordSpacing: 5,
   },
 });

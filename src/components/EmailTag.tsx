@@ -10,7 +10,7 @@ export default function EmailTag(props: Props) {
   let emailHref = `mailto:${props.email}?subject=${props.templateSubject}&body=${props.templateBody}`;
   return (
     <a href={emailHref} className={css(styles.container)}>
-      <p>{`✉️ Email`}</p>
+      <p className={css(styles.text)}>{"✉️ Email"}</p>
     </a>
   );
 }
@@ -23,5 +23,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 10,
     textDecoration: "none",
+  },
+  text: {
+    wordSpacing: 5,
   },
 });

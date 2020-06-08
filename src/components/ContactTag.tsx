@@ -3,18 +3,29 @@ import { StyleSheet, css } from "aphrodite";
 import EmailTag from "./EmailTag";
 import PhoneTag from "./PhoneTag";
 
+const typeToString: any = {
+  da: "D.A",
+  mayor: "Mayor",
+};
+
 type Props = {
   type: string;
+  name: string;
   email?: string;
   phoneNumber?: string;
   emailTemplateSubject?: string;
   emailTemplateBody?: string;
   phoneTemplate?: string;
 };
+
 export default function ContactTag(props: Props) {
   return (
     <div className={css(styles.container)}>
-      <p>{props.type}: </p>
+      <p className={css(styles.typeText)}>
+        {`${typeToString[props.type]} - ${props.name}: `}
+      </p>
+      <div className={css(styles.spacer)} />
+
       {props.email && (
         <EmailTag
           email={props.email}
@@ -22,6 +33,7 @@ export default function ContactTag(props: Props) {
           templateBody={props.emailTemplateBody}
         />
       )}
+      <div className={css(styles.spacer)} />
       {props.phoneNumber && <PhoneTag phoneNumber={props.phoneNumber} />}
     </div>
   );
@@ -29,12 +41,15 @@ export default function ContactTag(props: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 25,
-    width: "100%",
     display: "flex",
+    flex: 1,
+    width: "100%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    borderRadius: 10,
+  },
+  typeText: {},
+  spacer: {
+    width: 10,
   },
 });

@@ -8,7 +8,7 @@ type Props = {
 export default function LocationTag(props: Props) {
   return (
     <div className={css(styles.container)}>
-      <p>{`📍${props.city}, ${props.state}`}</p>
+      <p className={css(styles.location)}>{`${props.city}, ${props.state}`}</p>
     </div>
   );
 }
@@ -20,5 +20,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
+    alignSelf: "flex-start",
+  },
+  location: {
+    fontSize: 14,
+    color: "rgba(0,0,0,.8)",
   },
 });

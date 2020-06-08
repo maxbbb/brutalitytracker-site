@@ -25,9 +25,9 @@ export default function StatusTag(props: Props) {
       className={css(styles.container)}
       style={{ backgroundColor: statusToColors[props.status] }}
     >
-      <p className={css(styles.statusText)}>{`${
+      <h3 className={css(styles.statusText)}>{`${
         statusToText[props.status]
-      }`}</p>
+      }`}</h3>
     </div>
   );
 }
@@ -35,16 +35,21 @@ export default function StatusTag(props: Props) {
 const styles = StyleSheet.create({
   container: {
     height: 25,
+    width: "100%",
     display: "flex",
     alignItems: "center",
+    alignSelf: "center",
     justifyContent: "center",
-    borderRadius: 10,
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingTop: 1,
-    paddingBottom: 1,
+    borderRadius: 0,
+    // paddingLeft: 7.5,
+    // paddingRight: 7.5,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   statusText: {
     color: "white",
+    fontWeight: "bold",
   },
 });
